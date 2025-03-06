@@ -1,0 +1,26 @@
+{
+	"data": "ENC[AES256_GCM,data:IDf3TIgGUOzfBgh+PzUEyd0csm5NilMenkSKGSDLd27kErVYTvHkz6aacH9gdCv0CkKAUzmx/UHweKpFgTnes25SFkBlnOpgZj8=,iv:KRFSlrTomElTuSFiqAy4noYYL6AiIWk9TdQJz71by6Q=,tag:oEkZsNya6lVE+tTJXjoNsA==,type:str]",
+	"sops": {
+		"kms": null,
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": [
+			{
+				"recipient": "age1j2cgzddsx3tnkt88yycl6hynan6g75sqveszfknrwwdy4fywjuxstwyrjp",
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5Ymt0M045YW51ck1hOE9y\na280b283MUxJWFlyUFpvUWl6cTNtMForMEJBCmtHdXVEMWdMaCtHVHVBK1dyN0dh\ncHd0a3BqR3o4ZFN3cjh2SWVIQnJuNmcKLS0tIFUzeEh5dDZlRjlvTFY5N0tmOEhj\nRDZ0NjFhaUxReDIrNHpYbjkrMjlCOVEKbg6JItc7+D/Od1yP1+E2HlEHfVR5lVeO\n+nvXvhbA/fzlOK6OUxTprf9DOOoiH1V5wuvYwzb3Aw2Ik74DhAwV6Q==\n-----END AGE ENCRYPTED FILE-----\n"
+			}
+		],
+		"lastmodified": "2025-05-13T02:48:01Z",
+		"mac": "ENC[AES256_GCM,data:4gh0N+uIXTvDEhL4nfKwexen82FN1xYpNJn40yMrw1iibe1mP59p7o5c94qfO9QEutRJVdKXeKHCUIyykE3jrzyBZ1dbh5tt5/HL42TWBrd5bp2Z1NyW1xQ1yVjbpfRmaCxLRLm/jnxXLHj3lVdSjUlOW4BcpowgvUlkPifq2rU=,iv:EJVJXQk48QShSReQC+gBZ9CMmpsASmdEenYbmpsgKAQ=,tag:AyI3Trs1BbcI9HtQILaG3A==,type:str]",
+		"pgp": [
+			{
+				"created_at": "2025-05-13T02:48:01Z",
+				"enc": "-----BEGIN PGP MESSAGE-----\n\nhQIMAyRhE6OpBCv6ARAAgHTqiS2o2KXpXBLuLZ13nW1J7peOBbcPTtHVze8P0q9f\ndASzvwgjwFslsM6H6vVvJXtMGvMMuO9aZdWCtHxMV4bJtLLLuOsSsj0SpjQEYzjN\nLX9RmDiiQ8RwxhCDpryX1J9jKvMkQrtjBS04apVH+FLBK7FToFu5zFN3KLALqeuY\n4OyqZBgpgrMhw61Q7g392YaL6Maw+swVDiSkse1cgUFDN8Kl6A0eWTu9O7lrD64r\ni0Qz/m6RMXwA4b+gzmV92jU3gfclWjGHAuZyc0q+nxfZEnM7T/x/mZdV/t//UCGW\nvkjW0Kzq0BsIrbTQVVVwORXoqWWcfs28VOWbPxHazhBD9eHqktmy9KdJgRzMlJVe\nAtxf47Cu0zZQZUMNdngse6m358drexLqkOWha7NddDFW6Lu9c+xGEdqif2WP5ats\n7a4rrQC2TYNErbrQSLwEvS1E9C1zTAj1a0nhHgSLYfXV/50kmHjG4uRoUbUfgKZu\nYJTXtRNSTSA+KY2RmRy+VcYDjsPsKT8FWRzZ/EYZ6tKpCRR1/2F0N6FMM3Jx/qNb\nFYvQoWoE5FixZQJibS+1alJG7BN2RhzLx2MHZYBxFTpM1rdkIlmjB/43QMDnpr3i\nAjPqQij8SokpD9+U9dwsbvoLHwoKH7d/Iqr7EQiHtDc6fAQ11pEsFxjGnJnEOdrS\nXAE/cgulPq9B60rnCydVNvlstsW5ojnTl0ImigB+wNzNgdQqFxsXJqMd7Dd/SmxE\n8tqRdOiTyAkig93c2/bHAPTYBconGYn+YMzcWRNvofBaGfIM/0VhqGPW+NhO\n=F8wo\n-----END PGP MESSAGE-----",
+				"fp": "B44FA6D00162333AA3461EDFD984D86CF8B7F35D"
+			}
+		],
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.9.4"
+	}
+}
