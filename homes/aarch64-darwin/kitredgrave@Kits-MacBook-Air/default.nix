@@ -11,8 +11,8 @@
     pkgs.openssh
   ];
   home.sessionPath = [ "/opt/homebrew/bin" ];
-  home.sessionVariables.EDITOR =
-    "${pkgs.local.emacs30-homebrew}/bin/emacsclient";
+  #home.sessionVariables.EDITOR =
+  #  "${pkgs.local.emacs30-homebrew}/bin/emacsclient";
   programs = {
     direnv = {
       enable = true;
@@ -50,13 +50,14 @@
     emacs = {
       client.enable = true;
       defaultEditor = true;
+      package = pkgs.local.emacs30-homebrew;
       enable = true;
     };
     gpg-agent = {
       enable = true;
       enableScDaemon = true;
       enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentryPackage = pkgs.pinentry_mac;
     };
   };
 }
