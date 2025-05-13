@@ -57,7 +57,7 @@
       enable = true;
       enableScDaemon = true;
       enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry_mac;
+      pinentry.package = pkgs.pinentry_mac;
       extraConfig = ''
         allow-emacs-pinentry
         allow-loopback-pinentry
