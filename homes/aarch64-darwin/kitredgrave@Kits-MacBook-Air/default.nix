@@ -37,11 +37,11 @@
     zsh = {
       enable = true;
       plugins = [{
-        name = "emacs-eat";
-        file = "integration/zsh";
+        name = "emacs-vterm";
+        file = "etc/emacs-vterm-zsh.sh";
         src = fetchGit {
-          url = "https://codeberg.org/akib/emacs-eat";
-          rev = "b2ad1be4113f1e1716d2723cab509bb7b8d24105";
+          url = "https://github.com/akermu/emacs-libvterm";
+          rev = "576408473b655491cfc85b1124456504d35d73a3";
         };
       }];
     };
