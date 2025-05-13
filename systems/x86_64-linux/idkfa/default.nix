@@ -199,6 +199,7 @@
 
   networking = {
     hostName = "idkfa";
+    hostId = "ad6176a8";
     wireless = {
       enable = true;
       secretsFile = config.sops.secrets.wifi-key.path;
