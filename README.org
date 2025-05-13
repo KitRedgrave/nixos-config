@@ -24,8 +24,8 @@ TODO
 ** TODO Unify Nix config with work laptop
 ** TODO Add Emacs configuration
 ** TODO Unify Emacs configuration with work laptop
-** TODO Add NixOS config for storage server
-** TODO Add Disko
+** DONE Add NixOS config for storage server
+** DONE Add Disko
 
 * References
 - https://github.com/nixos/nixpkgs
