@@ -51,6 +51,7 @@
       homes.modules = with inputs; [ sops-nix.homeManagerModules.sops ];
 
       systems.modules.nixos = with inputs; [
+        disko.nixosModules.disko
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
       ];

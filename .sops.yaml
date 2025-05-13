@@ -4,12 +4,27 @@ keys:
   - &server_xyzzy age1cph6r6zpv4ac46p5fnhra96kjulx8z79j2s7095d5md07p3jsu3qr5rhq6
   - &server_raspberrypi age1j2cgzddsx3tnkt88yycl6hynan6g75sqveszfknrwwdy4fywjuxstwyrjp
 creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini|enc)$
+    key_groups:
+    - pgp:
+      - *admin_kitredgrave
+      age:
+      - *server_Kits-MacBook-Air
+      - *server_raspberrypi
+      #- *server_idkfa
+      - *server_xyzzy
   - path_regex: systems/aarch64-darwin/Kits-MacBook-Air/[^/]+\.(yaml|json|env|ini|enc)$
     key_groups:
     - pgp:
       - *admin_kitredgrave
       age:
       - *server_Kits-MacBook-Air
+  - path_regex: systems/x86_64-linux/idkfa/[^/]+\.(yaml|json|env|ini|enc)$
+    key_groups:
+    - pgp:
+      - *admin_kitredgrave
+      #age:
+      #- *server_idkfa
   - path_regex: systems/x86_64-linux/xyzzy/[^/]+\.(yaml|json|env|ini|enc)$
     key_groups:
     - pgp:

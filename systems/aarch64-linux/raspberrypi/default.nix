@@ -16,7 +16,7 @@
     };
     wifi-key = {
       format = "binary";
-      sopsFile = ./wifi.enc;
+      sopsFile = inputs.self + "/secrets/home-wifi.enc";
     };
   };
 
