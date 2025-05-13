@@ -38,10 +38,10 @@
     };
   };
   sops.secrets = {
-    #tailscale-key = {
-    #  format = "binary";
-    #  sopsFile = ./tailscale.enc;
-    #};
+    tailscale-key = {
+      format = "binary";
+      sopsFile = ./tailscale.enc;
+    };
     wifi-key = {
       format = "binary";
       sopsFile = inputs.self + "/secrets/home-wifi.enc";
@@ -62,10 +62,10 @@
 
   services = {
     openssh.enable = true;
-    #tailscale = {
-    #  enable = true;
-    #  authKeyFile = config.sops.secrets.tailscale-key.path;
-    #};
+    tailscale = {
+      enable = true;
+      authKeyFile = config.sops.secrets.tailscale-key.path;
+    };
   };
 
   time.timeZone = "America/Los_Angeles";
