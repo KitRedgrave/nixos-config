@@ -1,8 +1,10 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  boot.availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" ];
-  boot.kernelModules = [ "rtw89_8852ce" "kvm-amd" ];
+  boot.initrd = {
+    availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" ];
+    kernelModules = [ "rtw89_8852ce" "kvm-amd" ];
+  };
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
   disko.devices = {
