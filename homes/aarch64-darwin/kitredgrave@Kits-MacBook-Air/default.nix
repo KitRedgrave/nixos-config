@@ -21,6 +21,7 @@
     emacs = {
       enable = true;
       package = pkgs.local.emacs30-homebrew;
+      extraPackages = epkgs: [ epkgs.vterm ];
     };
     git.enable = true;
     gpg = {
