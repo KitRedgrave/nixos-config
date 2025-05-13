@@ -8,6 +8,22 @@
   boot.kernelModules = [ "kvm-amd" ];
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
+
+  sops.secrets = {
+    tailscale-key = {
+      format = "binary";
+      sopsFile = ./tailscale.enc;
+    };
+    wifi-key = {
+      format = "binary";
+      sopsFile = inputs.self + "/secrets/home-wifi.enc";
+    };
+    luks-zfs-keyfile = {
+      format = "binary";
+      sopsFile = ./luks_zfs_keyfile.enc;
+    };
+  };
+
   disko.devices = {
     disk = {
       main = {
@@ -42,19 +58,136 @@
           };
         };
       };
+      disk1 = {
+        type = "disk";
+        device = "/dev/disk/by-path/pci-0000:01:00.0-ata-1";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "disk1_crypt";
+                settings = {
+                  keyFile = "/boot/keyfile";
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "zfs";
+                  pool = "tank";
+                };
+              };
+            };
+          };
+        };
+      };
+      disk2 = {
+        type = "disk";
+        device = "/dev/disk/by-path/pci-0000:01:00.0-ata-2";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "disk2_crypt";
+                settings = {
+                  keyFile = "/boot/keyfile";
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "zfs";
+                  pool = "tank";
+                };
+              };
+            };
+          };
+        };
+      };
+      disk3 = {
+        type = "disk";
+        device = "/dev/disk/by-path/pci-0000:01:00.0-ata-3";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "disk3_crypt";
+                settings = {
+                  keyFile = "/boot/keyfile";
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "zfs";
+                  pool = "tank";
+                };
+              };
+            };
+          };
+        };
+      };
+      disk4 = {
+        type = "disk";
+        device = "/dev/disk/by-path/pci-0000:01:00.0-ata-4";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "disk4_crypt";
+                settings = {
+                  keyFile = "/boot/keyfile";
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "zfs";
+                  pool = "tank";
+                };
+              };
+            };
+          };
+        };
+      };
+      disk5 = {
+        type = "disk";
+        device = "/dev/disk/by-path/pci-0000:01:00.0-ata-5";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "disk5_crypt";
+                settings = {
+                  keyFile = "/boot/keyfile";
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "zfs";
+                  pool = "tank";
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+    zpool = {
+      tank = {
+        type = "zpool";
+        mode = "raidz1";
+        rootFsOptions = { compression = "lz4"; };
+        mountPoint = "/tank";
+      };
     };
   };
-  sops.secrets = {
-    tailscale-key = {
-      format = "binary";
-      sopsFile = ./tailscale.enc;
-    };
-    wifi-key = {
-      format = "binary";
-      sopsFile = inputs.self + "/secrets/home-wifi.enc";
-    };
-  };
-
   snowfallorg.users.kitredgrave = {
     create = true;
     admin = true;
