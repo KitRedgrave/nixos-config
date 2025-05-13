@@ -10,5 +10,5 @@
     ssh.enable = true;
   };
 
-  system.stateVersion = "24.05";
+  home.stateVersion = "24.05";
 }
