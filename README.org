@@ -2,30 +2,28 @@
 
 * HOWTO
 ** Rebuild from current flake?
-macOS: `darwin-rebuild switch --flake .`
-
-NixOS: `nixos-rebuild switch --flake .`
+- macOS: `darwin-rebuild switch --flake .`
+- NixOS: `nixos-rebuild switch --flake .`
 
 ** Build system image for USB stick or SD card?
-Raspberry Pi: `nix build .#nixosConfigurations.raspberrypi.config.system.build.sdImage`
-
-Steam Deck: `nix build .#nixosConfigurations.steamdeck.config.system.build.isoImage`
+- Raspberry Pi: `nix build .#nixosConfigurations.raspberrypi.config.system.build.sdImage`
+- Steam Deck: `nix build .#nixosConfigurations.steamdeck.config.system.build.isoImage`
 
 ** Deploy new builds?
 TODO
 
 * Roadmap
-- DONE Secrets management with sops-nix
-- TODO Deploy management with deploy-rs
+** DONE Secrets management with sops-nix
+** TODO Deploy management with deploy-rs
   https://github.com/serokell/deploy-rs?tab=readme-ov-file#overall-usage
-  - [ ] Simple case for one system
-  - [ ] Deploy option for all systems (NixOS, Darwin)
-  - [ ] Deploy option for all homes on all systems
-- TODO Unify Nix config with work laptop
-- TODO Add Emacs configuration
-- TODO Unify Emacs configuration with work laptop
-- TODO Add NixOS config for storage server
-- TODO Add Disko
+*** [ ] Simple case for one system
+*** [ ] Deploy option for all systems (NixOS, Darwin)
+*** [ ] Deploy option for all homes on all systems
+** TODO Unify Nix config with work laptop
+** TODO Add Emacs configuration
+** TODO Unify Emacs configuration with work laptop
+** TODO Add NixOS config for storage server
+** TODO Add Disko
 
 * References
 - https://github.com/nixos/nixpkgs
