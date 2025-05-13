@@ -22,10 +22,10 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
 
-  programs.gnupg = {
-    agent.enable = true;
-    agent.enableSSHSupport = true;
-  };
+  #programs.gnupg = {
+  #  agent.enable = true;
+  #  agent.enableSSHSupport = true;
+  #};
 
   system.defaults = {
     finder.AppleShowAllExtensions = true;
@@ -36,7 +36,7 @@
       "/System/Applications/Calendar.app"
       "/Applications/Firefox.app"
       "/Applications/Discord.app"
-      "${pkgs.local.emacs30-homebrew}/Applications/Emacs.app"
+      #"${pkgs.local.emacs30-homebrew}/Applications/Emacs.app"
     ];
   };
 

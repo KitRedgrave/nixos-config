@@ -11,21 +11,19 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";

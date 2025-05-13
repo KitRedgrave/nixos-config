@@ -46,4 +46,17 @@
       }];
     };
   };
+  services = {
+    emacs = {
+      client.enable = true;
+      defaultEditor = true;
+      enable = true;
+    };
+    gpg-agent = {
+      enable = true;
+      enableScDaemon = true;
+      enableSshSupport = true;
+      pinentryPackage = pkgs.pinentry-qt;
+    };
+  };
 }
