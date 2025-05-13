@@ -20,7 +20,7 @@
     };
     luks-zfs-keyfile = {
       format = "binary";
-      sopsFile = ./luks_zfs_keyfile.enc;
+      sopsFile = ./luks-zfs-keyfile.enc;
     };
   };
 
@@ -70,7 +70,7 @@
                 type = "luks";
                 name = "disk1_crypt";
                 settings = {
-                  keyFile = "/boot/keyfile";
+                  keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
                 content = {
@@ -94,7 +94,7 @@
                 type = "luks";
                 name = "disk2_crypt";
                 settings = {
-                  keyFile = "/boot/keyfile";
+                  keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
                 content = {
@@ -118,7 +118,7 @@
                 type = "luks";
                 name = "disk3_crypt";
                 settings = {
-                  keyFile = "/boot/keyfile";
+                  keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
                 content = {
@@ -142,7 +142,7 @@
                 type = "luks";
                 name = "disk4_crypt";
                 settings = {
-                  keyFile = "/boot/keyfile";
+                  keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
                 content = {
@@ -166,7 +166,7 @@
                 type = "luks";
                 name = "disk5_crypt";
                 settings = {
-                  keyFile = "/boot/keyfile";
+                  keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
                 content = {
