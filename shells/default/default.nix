@@ -1,4 +1,4 @@
 { lib, pkgs, ... }:
 
 with pkgs;
-mkShell { packages = [ nixd ]; }
+mkShell { packages = [ sops nixd ]; }
