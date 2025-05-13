@@ -1,4 +1,6 @@
-#+title: Readme
+#+title: Kit Redgrave's NixOS Config
+
+This repo will eventually contain Nix configuration for as many of my systems as I can get NixOS on.
 
 * HOWTO
 ** Rebuild from current flake?
