@@ -41,7 +41,7 @@
         file = "etc/emacs-vterm-zsh.sh";
         src = fetchGit {
           url = "https://github.com/akermu/emacs-libvterm";
-          rev = "576408473b655491cfc85b1124456504d35d73a3";
+          rev = "056ad74653704bc353d8ec8ab52ac75267b7d373";
         };
       }];
     };
