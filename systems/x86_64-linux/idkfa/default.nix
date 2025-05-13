@@ -184,7 +184,7 @@
         type = "zpool";
         mode = "raidz1";
         rootFsOptions = { compression = "lz4"; };
-        mountPoint = "/tank";
+        mountpoint = "/tank";
       };
     };
   };
