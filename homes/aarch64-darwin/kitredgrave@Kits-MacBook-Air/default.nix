@@ -58,6 +58,10 @@
       enableScDaemon = true;
       enableSshSupport = true;
       pinentryPackage = pkgs.pinentry_mac;
+      extraConfig = ''
+        allow-emacs-pinentry
+        allow-loopback-pinentry
+      '';
     };
   };
 }
