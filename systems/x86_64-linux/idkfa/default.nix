@@ -15,6 +15,7 @@
       format = "binary";
       sopsFile = inputs.self + "/secrets/home-wifi.enc";
     };
+    luks-zfs-passphrase = { };
     luks-zfs-keyfile = {
       format = "binary";
       sopsFile = ./luks-zfs-keyfile.enc;
