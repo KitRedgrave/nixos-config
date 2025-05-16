@@ -21,6 +21,7 @@
       format = "binary";
       sopsFile = ./luks-zfs-keyfile.enc;
     };
+    tailscale-key = { };
   };
 
   disko.devices = {
