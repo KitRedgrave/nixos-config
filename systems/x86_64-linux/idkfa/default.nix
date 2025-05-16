@@ -58,7 +58,7 @@
           };
         };
       };
-      disk1 = {
+      zdisk1 = {
         type = "disk";
         device = "/dev/disk/by-path/pci-0000:01:00.0-ata-1";
         content = {
@@ -68,7 +68,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "disk1_crypt";
+                name = "zdisk1_crypt";
                 settings = {
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
@@ -82,7 +82,7 @@
           };
         };
       };
-      disk2 = {
+      zdisk2 = {
         type = "disk";
         device = "/dev/disk/by-path/pci-0000:01:00.0-ata-2";
         content = {
@@ -92,7 +92,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "disk2_crypt";
+                name = "zdisk2_crypt";
                 settings = {
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
@@ -106,7 +106,7 @@
           };
         };
       };
-      disk3 = {
+      zdisk3 = {
         type = "disk";
         device = "/dev/disk/by-path/pci-0000:01:00.0-ata-3";
         content = {
@@ -116,7 +116,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "disk3_crypt";
+                name = "zdisk3_crypt";
                 settings = {
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
@@ -130,7 +130,7 @@
           };
         };
       };
-      disk4 = {
+      zdisk4 = {
         type = "disk";
         device = "/dev/disk/by-path/pci-0000:01:00.0-ata-4";
         content = {
@@ -140,7 +140,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "disk4_crypt";
+                name = "zdisk4_crypt";
                 settings = {
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
@@ -154,7 +154,7 @@
           };
         };
       };
-      disk5 = {
+      zdisk5 = {
         type = "disk";
         device = "/dev/disk/by-path/pci-0000:01:00.0-ata-5";
         content = {
@@ -164,7 +164,7 @@
               size = "100%";
               content = {
                 type = "luks";
-                name = "disk5_crypt";
+                name = "zdisk5_crypt";
                 settings = {
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
