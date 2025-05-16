@@ -9,11 +9,8 @@
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
 
+  sops.defaultSopsFile = ./secrets.yaml;
   sops.secrets = {
-    tailscale-key = {
-      format = "binary";
-      sopsFile = ./tailscale.enc;
-    };
     wifi-key = {
       format = "binary";
       sopsFile = inputs.self + "/secrets/home-wifi.enc";
@@ -73,6 +70,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
+                passwordFile = none;
                 content = {
                   type = "zfs";
                   pool = "tank";
