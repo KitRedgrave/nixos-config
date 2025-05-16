@@ -192,28 +192,28 @@
           acltype = "posixacl";
           xattr = "sa";
           "com.sun:auto-snapshot" = "true";
-          datasets = {
-            "root" = {
-              type = "zfs_fs";
-              mountpoint = "/";
-            };
-            "root/nix" = {
-              type = "zfs_fs";
-              mountpoint = "/nix";
-            };
-            "root/swap" = {
-              type = "zfs_volume";
-              size = "8G";
-              content = { type = "swap"; };
-              options = {
-                volblocksize = "4096";
-                compression = "zle";
-                logbias = "throughput";
-                sync = "always";
-                primarycache = "metadata";
-                secondarycache = "none";
-                "com.sun:auto-snapshot" = "false";
-              };
+        };
+        datasets = {
+          "root" = {
+            type = "zfs_fs";
+            mountpoint = "/";
+          };
+          "root/nix" = {
+            type = "zfs_fs";
+            mountpoint = "/nix";
+          };
+          "root/swap" = {
+            type = "zfs_volume";
+            size = "8G";
+            content = { type = "swap"; };
+            options = {
+              volblocksize = "4096";
+              compression = "zle";
+              logbias = "throughput";
+              sync = "always";
+              primarycache = "metadata";
+              secondarycache = "none";
+              "com.sun:auto-snapshot" = "false";
             };
           };
         };
