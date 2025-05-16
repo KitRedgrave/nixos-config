@@ -191,7 +191,7 @@
           compression = "zstd";
           acltype = "posixacl";
           xattr = "sa";
-          "com.sun:auto-snapshot" = true;
+          "com.sun:auto-snapshot" = "true";
           datasets = {
             "root" = {
               type = "zfs_fs";
