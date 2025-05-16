@@ -46,12 +46,11 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
-            root = {
+            zfs = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
+                type = "zfs";
+                pool = "zroot";
               };
             };
           };
@@ -75,7 +74,7 @@
                 passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
-                  pool = "tank";
+                  pool = "zdata";
                 };
               };
             };
@@ -100,7 +99,7 @@
                 passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
-                  pool = "tank";
+                  pool = "zdata";
                 };
               };
             };
@@ -125,7 +124,7 @@
                 passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
-                  pool = "tank";
+                  pool = "zdata";
                 };
               };
             };
@@ -150,7 +149,7 @@
                 passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
-                  pool = "tank";
+                  pool = "zdata";
                 };
               };
             };
@@ -175,7 +174,7 @@
                 passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
-                  pool = "tank";
+                  pool = "zdata";
                 };
               };
             };
@@ -184,11 +183,52 @@
       };
     };
     zpool = {
-      tank = {
+      zroot = {
+        type = "zpool";
+        rootFsOptions = {
+          mountpoint = "none";
+          compression = "zstd";
+          acltype = "posixacl";
+          xattr = "sa";
+          "com.sun:auto-snapshot" = true;
+          options.ashift = "12";
+          datasets = {
+            "root" = {
+              type = "zfs_fs";
+              mountpoint = "/";
+            };
+            "root/nix" = {
+              type = "zfs_fs";
+              mountpoint = "/nix";
+            };
+            "root/swap" = {
+              type = "zfs_volume";
+              size = "8G";
+              content = { type = "swap"; };
+              options = {
+                volblocksize = "4096";
+                compression = "zle";
+                logbias = "throughput";
+                sync = "always";
+                primarycache = "metadata";
+                secondarycache = "none";
+                "com.sun:auto-snapshot" = "false";
+              };
+            };
+          };
+        };
+      };
+      zdata = {
         type = "zpool";
         mode = "raidz2";
-        rootFsOptions = { compression = "lz4"; };
-        mountpoint = "/tank";
+        rootFsOptions = {
+          mountpoint = "/zdata";
+          compression = "lz4";
+          acltype = "posixacl";
+          xattr = "sa";
+          "com.sun:auto-snapshot" = true;
+          options.ashift = "12";
+        };
       };
     };
   };

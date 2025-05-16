@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  sops.defaultSopsFile = ./secrets.yaml;
   programs = {
     direnv = {
       enable = true;

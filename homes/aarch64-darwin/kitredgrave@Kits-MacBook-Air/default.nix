@@ -11,8 +11,6 @@
     pkgs.openssh
   ];
   home.sessionPath = [ "/opt/homebrew/bin" ];
-  #home.sessionVariables.EDITOR =
-  #  "${pkgs.local.emacs30-homebrew}/bin/emacsclient";
   programs = {
     direnv = {
       enable = true;
