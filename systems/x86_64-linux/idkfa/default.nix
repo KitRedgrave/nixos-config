@@ -70,7 +70,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
-                passwordFile = none;
+                passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
                   pool = "tank";
@@ -95,6 +95,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
+                passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
                   pool = "tank";
@@ -119,6 +120,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
+                passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
                   pool = "tank";
@@ -143,6 +145,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
+                passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
                   pool = "tank";
@@ -167,6 +170,7 @@
                   keyFile = config.sops.secrets.luks-zfs-keyfile.path;
                   allowDiscards = true;
                 };
+                passwordFile = config.sops.secrets.luks-zfs-passphrase.path;
                 content = {
                   type = "zfs";
                   pool = "tank";
