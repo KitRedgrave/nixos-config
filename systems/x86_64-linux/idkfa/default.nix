@@ -226,7 +226,7 @@
           compression = "lz4";
           acltype = "posixacl";
           xattr = "sa";
-          "com.sun:auto-snapshot" = true;
+          "com.sun:auto-snapshot" = "true";
           options.ashift = "12";
         };
       };
