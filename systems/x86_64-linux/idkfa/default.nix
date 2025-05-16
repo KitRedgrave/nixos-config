@@ -185,13 +185,13 @@
     zpool = {
       zroot = {
         type = "zpool";
+        options.ashift = "12";
         rootFsOptions = {
           mountpoint = "none";
           compression = "zstd";
           acltype = "posixacl";
           xattr = "sa";
           "com.sun:auto-snapshot" = true;
-          options.ashift = "12";
           datasets = {
             "root" = {
               type = "zfs_fs";
@@ -228,7 +228,6 @@
           acltype = "posixacl";
           xattr = "sa";
           "com.sun:auto-snapshot" = "true";
-          options.ashift = "12";
         };
       };
     };
