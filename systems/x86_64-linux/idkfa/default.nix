@@ -237,7 +237,7 @@
     admin = true;
     home.enable = true;
   };
-  users.user = {
+  users.users = {
     kitredgrave.hashedPasswordFile =
       config.sops.secrets.kitredgrave-password.path;
     root.openssh.authorizedKeys.keys = [
