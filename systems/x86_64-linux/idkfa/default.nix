@@ -221,6 +221,7 @@
       zdata = {
         type = "zpool";
         mode = "raidz2";
+        options.ashift = "12";
         rootFsOptions = {
           mountpoint = "/zdata";
           compression = "lz4";
