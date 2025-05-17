@@ -21,6 +21,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-rosetta-builder = {
+      url = "github:cpick/nix-rosetta-builder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +58,10 @@
         sops-nix.nixosModules.sops
       ];
 
-      systems.modules.darwin = with inputs; [ sops-nix.darwinModules.sops ];
+      systems.modules.darwin = with inputs; [
+        sops-nix.darwinModules.sops
+        nix-rosetta-builder.darwinModules.default
+      ];
 
       systems.hosts.raspberrypi.modules = with inputs; [
         nixos-hardware.nixosModules.raspberry-pi-4
@@ -63,5 +70,7 @@
 
       systems.hosts.steamdeck.modules = with inputs;
         [ jovian-nixos.nixosModules.jovian ];
+
+      alias.shells.default = "default";
     };
 }

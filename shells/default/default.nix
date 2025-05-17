@@ -1,4 +1,4 @@
 { lib, pkgs, ... }:
 
 with pkgs;
-mkShell { packages = [ sops nixd ]; }
+mkShell { packages = [ sops nixos-anywhere nixos-rebuild nixd ]; }

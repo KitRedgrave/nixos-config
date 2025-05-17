@@ -1,15 +1,15 @@
 { pkgs, ... }:
 
 {
+  nix-rosetta-builder = {
+    enable = true;
+    onDemand = true;
+  };
   nix = {
-    settings = { trusted-users = [ "kitredgrave" ]; };
+    settings.trusted-users = [ "kitredgrave" ];
     extraOptions = ''
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
-    linux-builder = {
-      enable = true;
-      ephemeral = true;
-    };
   };
 
   users.users.kitredgrave = {
