@@ -1,6 +1,7 @@
 { config, lib, inputs, pkgs, systems, ... }:
 
 {
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   sops.secrets = {
     ssh_host_ed25519_key = {
       format = "binary";
@@ -11,7 +12,6 @@
       sopsFile = inputs.self + "/secrets/home-wifi.enc";
     };
   };
-  networking.hostname = "nixos";
   networking.wireless = {
     enable = true;
     secretsFile = config.sops.secrets.wifi-key.path;
