@@ -1,5 +1,6 @@
 keys:
   - &admin_kitredgrave B44FA6D00162333AA3461EDFD984D86CF8B7F35D
+  - &key_installer age1a89pf7u5j7l656sdtpxwr2v54hwqjq3kzph2zs4pmzam8txf3uhs6gta3s
   - &server_idkfa age13e9ftxra2vnrmdhtdsz353hly9zw30vv0y9r3lcf09uj6nqq8erqspqdhp
   - &server_Kits-MacBook-Air age1c69z88n2psaslg564pc3jpkenktx65duncgptlc8hedvhtw0yp9qrk3hgf
   - &server_xyzzy age1cph6r6zpv4ac46p5fnhra96kjulx8z79j2s7095d5md07p3jsu3qr5rhq6
@@ -10,10 +11,17 @@ creation_rules:
     - pgp:
       - *admin_kitredgrave
       age:
+      - *key_installer
       - *server_Kits-MacBook-Air
       - *server_raspberrypi
       - *server_idkfa
       - *server_xyzzy
+  - path_regex: systems/x86_64-install-iso/installer/[^/]+\.(yaml|json|env|ini|enc)$
+    key_groups:
+    - pgp:
+      - *admin_kitredgrave
+      age:
+      - *key_installer
   - path_regex: systems/aarch64-darwin/Kits-MacBook-Air/[^/]+\.(yaml|json|env|ini|enc)$
     key_groups:
     - pgp:
