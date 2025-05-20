@@ -270,6 +270,7 @@
   };
 
   networking = {
+    firewall.enable = true;
     hostName = "idkfa";
     hostId = "ad6176a8";
     wireless = {
@@ -280,6 +281,18 @@
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        domain = true;
+        hinfo = true;
+        userServices = true;
+        workstation = true;
+      };
+    };
     openssh = {
       enable = true;
       hostKeys = [ ]; # do not generate new host keys
@@ -291,8 +304,8 @@
       settings = {
         global = {
           "workgroup" = "WORKGROUP";
-          "server string" = "smbnix";
-          "netbios name" = "smbnix";
+          "server string" = "idkfa";
+          "netbios name" = "idkfa";
           "security" = "user";
           "guest account" = "nobody";
           "map to guest" = "bad user";
