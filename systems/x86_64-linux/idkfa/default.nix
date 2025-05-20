@@ -27,15 +27,16 @@
   };
 
   environment.etc = {
-    # XXX a bit of possible nondeterminism
-    # (en|de)cryption is handled outside by git smudge/clean filters,
-    # needs unlocking before this builds properly
-    # can't use sops-nix because this is the key sops-nix depends on
-    "ssh/ssh_host_ed25519_key" = {
-      mode = "0400";
-      source = ./ssh_host_ed25519_key.enc;
+    "crypttab" = {
+      mode = "0600";
+      text = ''
+        zdisk1_crypt UUID=b66648ce-953e-44db-9e77-997c86de51e3 /run/secrets/luks-zfs-keyfile
+        zdisk2_crypt UUID=a7cd8b47-1650-4713-9050-2ffbee83e0b0 /run/secrets/luks-zfs-keyfile
+        zdisk3_crypt UUID=f4f2c190-362f-4ed7-9d3a-95b844326445 /run/secrets/luks-zfs-keyfile
+        zdisk4_crypt UUID=72cd4b4f-cf65-4112-aa50-781347a2379d /run/secrets/luks-zfs-keyfile
+        zdisk5_crypt UUID=35811318-4c91-48fd-8b7f-73087198a98b /run/secrets/luks-zfs-keyfile
+      '';
     };
-    "ssh/ssh_host_ed25519_key.pub".source = ./ssh_host_ed25519_key.pub;
   };
 
   disko.devices = {

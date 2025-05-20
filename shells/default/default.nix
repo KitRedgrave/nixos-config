@@ -1,6 +1,4 @@
 { lib, pkgs, ... }:
 
 with pkgs;
-mkShell {
-  packages = [ sops ssh-to-age git-agecrypt nixos-anywhere nixos-rebuild nixd ];
-}
+mkShell { packages = [ sops ssh-to-age nixos-anywhere nixos-rebuild nixd ]; }
