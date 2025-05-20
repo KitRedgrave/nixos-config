@@ -311,6 +311,22 @@
           "map to guest" = "bad user";
         };
       };
+      shares = {
+        media = {
+          path = "/zdata/media";
+          browseable = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "writable" = "yes";
+        };
+        backup = {
+          path = "/zdata/backup";
+          browseable = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "writable" = "yes";
+        };
+      };
     };
     samba-wsdd = {
       enable = true;
