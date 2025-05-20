@@ -284,6 +284,25 @@
       enable = true;
       hostKeys = [ ]; # do not generate new host keys
     };
+    samba = {
+      enable = true;
+      securityType = "user";
+      openFirewall = true;
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "smbnix";
+          "netbios name" = "smbnix";
+          "security" = "user";
+          "guest account" = "nobody";
+          "map to guest" = "bad user";
+        };
+      };
+    };
+    samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
     tailscale = {
       enable = true;
       authKeyFile = config.sops.secrets.tailscale-key.path;
