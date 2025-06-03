@@ -295,7 +295,7 @@
   };
 
   virtualisation = {
-    enable = true;
+    containers.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
