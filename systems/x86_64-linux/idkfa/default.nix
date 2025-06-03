@@ -250,6 +250,20 @@
           xattr = "sa";
           "com.sun:auto-snapshot" = "true";
         };
+        datasets = {
+          "zdata/backup" = {
+            type = "zfs_fs";
+            mountpoint = "/zdata/backup";
+          };
+          "zdata/media" = {
+            type = "zfs_fs";
+            mountpoint = "/zdata/media";
+          };
+          "zdata/hydrus-files" = {
+            type = "zfs_fs";
+            mountpoint = "/zdata/hydrus-files";
+          };
+        };
       };
     };
   };
@@ -280,6 +294,17 @@
     };
   };
 
+  virtualisation = {
+    enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  environment.systemPackages = with pkgs; [ dive podman-tui podman-compose ];
+
   services = {
     avahi = {
       enable = true;
@@ -299,7 +324,6 @@
     };
     samba = {
       enable = true;
-      securityType = "user";
       openFirewall = true;
       settings = {
         global = {
