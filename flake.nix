@@ -42,6 +42,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = "github:Mic92/sops-nix";
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      inputs.nixpkgs.follows = "";
+    };
+
+    # temp workaround for https://github.com/NixOS/nixpkgs/issues/395169
+    #emacs-nix-hack = {
+    #  url = "github:fiddlerwoaroof/emacs-nix-hack";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = inputs:
@@ -50,17 +60,22 @@
       src = ./.;
       snowfall.namespace = "local";
 
-      homes.modules = with inputs; [ sops-nix.homeManagerModules.sops ];
+      homes.modules = with inputs; [
+        sops-nix.homeManagerModules.sops
+        nix-doom-emacs-unstraightened.homeModule
+      ];
 
       systems.modules.nixos = with inputs; [
         disko.nixosModules.disko
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
+        { home-manager.backupFileExtension = "hmbackup"; }
       ];
 
       systems.modules.darwin = with inputs; [
         sops-nix.darwinModules.sops
         nix-rosetta-builder.darwinModules.default
+        { home-manager.backupFileExtension = "hmbackup"; }
       ];
 
       systems.hosts.raspberrypi.modules = with inputs; [
