@@ -1,9 +1,8 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 # from https://nixos.wiki/wiki/Emacs#Darwin_.28macOS.29
-
-pkgs.emacs30-pgtk.overrideAttrs (old: {
-  patches = (old.patches or [ ]) ++ [
+let
+  macosPatches = [
     # Fix OS window role
     (pkgs.fetchpatch {
       url =
@@ -23,4 +22,12 @@ pkgs.emacs30-pgtk.overrideAttrs (old: {
       sha256 = "3QLq91AQ6E921/W9nfDjdOUWR8YVsqBAT/W9c1woqAw=";
     })
   ];
-})
+  # this convolution is a temp workaround for https://github.com/NixOS/nixpkgs/issues/395169
+  pkgs' = pkgs.extend (final: prev: {
+    ld64 = prev.ld64.overrideAttrs (old: {
+      patches = old.patches or [ ] ++ [ ./dedupe-rpath-entries.patch ];
+    });
+  });
+  patchedEmacs = pkgs'.emacs30.overrideAttrs
+    (old: { patches = (old.patches or [ ]) ++ macosPatches; });
+in patchedEmacs.override { withNativeCompilation = true; }
