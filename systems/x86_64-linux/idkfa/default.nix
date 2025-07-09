@@ -251,17 +251,25 @@
           "com.sun:auto-snapshot" = "true";
         };
         datasets = {
-          "zdata/backup" = {
+          "backup" = {
             type = "zfs_fs";
             mountpoint = "/zdata/backup";
           };
-          "zdata/media" = {
+          "hydrus-files" = {
+            type = "zfs_fs";
+            mountpoint = "/zdata/hydrus-files";
+          };
+          "media" = {
             type = "zfs_fs";
             mountpoint = "/zdata/media";
           };
-          "zdata/hydrus-files" = {
+          "steam-library" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/hydrus-files";
+            mountpoint = "/zdata/steam-library";
+          };
+          "unsorted" = {
+            type = "zfs_fs";
+            mountpoint = "/zdata/unsorted";
           };
         };
       };
@@ -308,7 +316,7 @@
   services = {
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       publish = {
         enable = true;
         addresses = true;
@@ -334,8 +342,13 @@
           "guest account" = "nobody";
           "map to guest" = "bad user";
         };
-      };
-      shares = {
+        backup = {
+          path = "/zdata/backup";
+          browseable = "yes";
+          "read only" = "no";
+          "guest ok" = "no";
+          "writable" = "yes";
+        };
         media = {
           path = "/zdata/media";
           browseable = "yes";
@@ -343,8 +356,8 @@
           "guest ok" = "no";
           "writable" = "yes";
         };
-        backup = {
-          path = "/zdata/backup";
+        unsorted = {
+          path = "/zdata/unsorted";
           browseable = "yes";
           "read only" = "no";
           "guest ok" = "no";
