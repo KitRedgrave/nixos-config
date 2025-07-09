@@ -4,8 +4,10 @@
   nix-rosetta-builder = {
     enable = true;
     onDemand = true;
+    diskSize = "10GiB";
   };
   nix = {
+    settings.max-jobs = 4;
     settings.trusted-users = [ "kitredgrave" ];
     extraOptions = ''
       extra-platforms = x86_64-darwin aarch64-darwin
@@ -17,11 +19,9 @@
     home = "/Users/kitredgrave";
   };
 
+  system.primaryUser = "kitredgrave";
+
   services.tailscale.enable = true;
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
-
   system.defaults = {
     finder.AppleShowAllExtensions = true;
     finder.FXPreferredViewStyle = "clmv";
@@ -31,7 +31,6 @@
       "/System/Applications/Calendar.app"
       "/Applications/Firefox.app"
       "/Applications/Discord.app"
-      #"${pkgs.local.emacs30-homebrew}/Applications/Emacs.app"
     ];
   };
 
