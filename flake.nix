@@ -84,15 +84,18 @@
       systems.hosts.kitdeck.modules = with inputs;
         [ jovian-nixos.nixosModules.jovian ];
 
-      alias.shells.default = "default";
+      alias = {
+        checks.default = "default";
+        shells.default = "default";
+      };
     } // {
       deploy.nodes = {
         idkfa = {
           hostname = "idkfa.risk-puffin.ts.net";
+          interactiveSudo = true;
           remoteBuild = true;
           profiles = {
             system = {
-              sshUser = "root";
               path = with inputs;
                 deploy-rs.lib.x86_64-linux.activate.nixos
                 self.nixosConfigurations.idkfa;
@@ -101,10 +104,10 @@
         };
         xyzzy = {
           hostname = "xyzzy.kitredgrave.net";
+          interactiveSudo = true;
           remoteBuild = true;
           profiles = {
             system = {
-              sshUser = "root";
               path = with inputs;
                 deploy-rs.lib.x86_64-linux.activate.nixos
                 self.nixosConfiguration.xyzzy;
