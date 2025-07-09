@@ -21,6 +21,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    deploy-rs.url = "github:serokell/deploy-rs";
     nix-rosetta-builder = {
       url = "github:cpick/nix-rosetta-builder";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,19 +43,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = "github:Mic92/sops-nix";
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "";
     };
-
-    # temp workaround for https://github.com/NixOS/nixpkgs/issues/395169
-    #emacs-nix-hack = {
-    #  url = "github:fiddlerwoaroof/emacs-nix-hack";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
   };
 
-  outputs = inputs:
+  outputs = { self, ... }@inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
@@ -63,12 +59,14 @@
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
         nix-doom-emacs-unstraightened.homeModule
+        quadlet-nix.homeManagerModules.quadlet
       ];
 
       systems.modules.nixos = with inputs; [
         disko.nixosModules.disko
         nixos-generators.nixosModules.all-formats
         sops-nix.nixosModules.sops
+        quadlet-nix.nixosModules.quadlet
         { home-manager.backupFileExtension = "hmbackup"; }
       ];
 
@@ -87,5 +85,18 @@
         [ jovian-nixos.nixosModules.jovian ];
 
       alias.shells.default = "default";
+    } // {
+      deploy.nodes.idkfa = {
+        hostname = "idkfa-1.risk-puffin.ts.net";
+        remoteBuild = true;
+        profiles = {
+          system = {
+            sshUser = "root";
+            path = with inputs;
+              deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.idkfa;
+          };
+        };
+      };
     };
 }
