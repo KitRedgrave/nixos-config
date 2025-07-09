@@ -92,6 +92,7 @@
       deploy.nodes = {
         idkfa = {
           hostname = "idkfa.risk-puffin.ts.net";
+          user = "kitredgrave";
           interactiveSudo = true;
           remoteBuild = true;
           profiles = {
@@ -104,6 +105,7 @@
         };
         xyzzy = {
           hostname = "xyzzy.kitredgrave.net";
+          user = "kitredgrave";
           interactiveSudo = true;
           remoteBuild = true;
           profiles = {
