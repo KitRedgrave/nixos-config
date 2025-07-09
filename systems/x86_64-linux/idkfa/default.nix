@@ -5,7 +5,6 @@
     availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" ];
     kernelModules = [ ];
   };
-  boot.kernelModules = [ "kvm-amd" ];
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
 
@@ -255,17 +254,17 @@
             type = "zfs_fs";
             mountpoint = "/zdata/backup";
           };
-          "hydrus-files" = {
+          "hydrus_files" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/hydrus-files";
+            mountpoint = "/zdata/hydrus_files";
           };
           "media" = {
             type = "zfs_fs";
             mountpoint = "/zdata/media";
           };
-          "steam-library" = {
+          "steam_library" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/steam-library";
+            mountpoint = "/zdata/steam_library";
           };
           "unsorted" = {
             type = "zfs_fs";
