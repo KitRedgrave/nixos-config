@@ -217,17 +217,17 @@
             type = "zfs_fs";
             options.mountpoint = "/zdata/backup";
           };
-          "hydrus_files" = {
+          "hydrus-files" = {
             type = "zfs_fs";
-            options.mountpoint = "/zdata/hydrus_files";
+            options.mountpoint = "/zdata/hydrus-files";
           };
           "media" = {
             type = "zfs_fs";
             options.mountpoint = "/zdata/media";
           };
-          "steam_library" = {
+          "steam-library" = {
             type = "zfs_fs";
-            options.mountpoint = "/zdata/steam_library";
+            options.mountpoint = "/zdata/steam-library";
           };
           "unsorted" = {
             type = "zfs_fs";
