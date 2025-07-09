@@ -2,9 +2,9 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  # imports = [ ./disko.nix ];
-  #boot.loader.grub.enable = true;
-  #networking.hostname = "steamdeck";
+  imports = [ ./disko.nix ];
+
+  networking.hostname = "steamdeck";
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
   time.timeZone = "America/Los_Angeles";
@@ -13,7 +13,6 @@
     extraGroups = [ "wheel" ];
   };
   services = {
-    openssh.enable = true;
     tailscale.enable = true;
     xserver.enable = true;
     desktopManager.plasma6.enable = true;
