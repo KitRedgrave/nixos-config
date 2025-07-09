@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ inputs, config, ... }:
 
-builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy)
+builtins.mapAttrs (system: deployLib: deployLib.deployChecks config.deploy)
 inputs.deploy-rs.lib
