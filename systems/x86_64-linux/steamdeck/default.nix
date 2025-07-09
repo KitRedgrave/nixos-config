@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
   imports = [ ./disko.nix ];
 
-  networking.hostname = "steamdeck";
+  networking.hostName = "kitdeck";
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
   time.timeZone = "America/Los_Angeles";
