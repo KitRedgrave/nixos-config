@@ -252,23 +252,23 @@
         datasets = {
           "backup" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/backup";
+            options.mountpoint = "/zdata/backup";
           };
           "hydrus_files" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/hydrus_files";
+            options.mountpoint = "/zdata/hydrus_files";
           };
           "media" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/media";
+            options.mountpoint = "/zdata/media";
           };
           "steam_library" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/steam_library";
+            options.mountpoint = "/zdata/steam_library";
           };
           "unsorted" = {
             type = "zfs_fs";
-            mountpoint = "/zdata/unsorted";
+            options.mountpoint = "/zdata/unsorted";
           };
         };
       };
