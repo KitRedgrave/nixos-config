@@ -81,7 +81,7 @@
         nixos-generators.nixosModules.sd-aarch64
       ];
 
-      systems.hosts.steamdeck.modules = with inputs;
+      systems.hosts.kitdeck.modules = with inputs;
         [ jovian-nixos.nixosModules.jovian ];
 
       alias.shells.default = "default";
