@@ -86,15 +86,29 @@
 
       alias.shells.default = "default";
     } // {
-      deploy.nodes.idkfa = {
-        hostname = "idkfa-1.risk-puffin.ts.net";
-        remoteBuild = true;
-        profiles = {
-          system = {
-            sshUser = "root";
-            path = with inputs;
-              deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.idkfa;
+      deploy.nodes = {
+        idkfa = {
+          hostname = "idkfa.risk-puffin.ts.net";
+          remoteBuild = true;
+          profiles = {
+            system = {
+              sshUser = "root";
+              path = with inputs;
+                deploy-rs.lib.x86_64-linux.activate.nixos
+                self.nixosConfigurations.idkfa;
+            };
+          };
+        };
+        xyzzy = {
+          hostname = "xyzzy.kitredgrave.net";
+          remoteBuild = true;
+          profiles = {
+            system = {
+              sshUser = "root";
+              path = with inputs;
+                deploy-rs.lib.x86_64-linux.activate.nixos
+                self.nixosConfiguration.xyzzy;
+            };
           };
         };
       };
