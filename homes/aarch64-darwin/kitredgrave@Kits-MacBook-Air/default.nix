@@ -3,12 +3,24 @@
 {
   home.stateVersion = "23.05";
   home.packages = [
-    pkgs.fd
-    pkgs.ripgrep
     pkgs.wget
     pkgs.yubikey-personalization
+    pkgs.fzf
+    pkgs.ripgrep
     pkgs.nixfmt-classic
     pkgs.openssh
+    pkgs.dockfmt
+    pkgs.editorconfig-checker
+    pkgs.nodejs
+    pkgs.cljfmt
+    pkgs.sbcl
+    pkgs.discount
+    pkgs.pngpaste
+    pkgs.graphviz
+    pkgs.shfmt
+    pkgs.shellcheck
+    pkgs.stylelint
+    pkgs.jsbeautifier
   ];
   home.sessionPath = [ "/opt/homebrew/bin" ];
   programs = {
@@ -16,16 +28,16 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    emacs = {
+    doom-emacs = {
+      doomDir = "/Users/kitredgrave/.config/doom";
+      emacs = pkgs.local.emacs30-homebrew;
       enable = true;
-      package = pkgs.local.emacs30-homebrew;
+      experimentalFetchTree = true;
       extraPackages = epkgs: [ epkgs.vterm ];
+      tangleArgs = "--all config.org";
     };
     git.enable = true;
-    gpg = {
-      enable = true;
-      settings = { use-agent = true; };
-    };
+    gpg.enable = true;
     password-store = {
       enable = true;
       settings.PASSWORD_STORE_DIR = "$HOME/.password-store";
@@ -48,7 +60,6 @@
     emacs = {
       client.enable = true;
       defaultEditor = true;
-      package = pkgs.local.emacs30-homebrew;
       enable = true;
     };
     gpg-agent = {
